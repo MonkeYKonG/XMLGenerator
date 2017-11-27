@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SetupAttribut</class>
+ <widget class="QDialog" name="SetupAttribut">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>256</width>
+    <height>99</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SetupAttribut</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="2" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Valeur:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Nom:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="Value"/>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="Name"/>
+   </item>
+   <item row="3" column="1">
+    <widget class="QDialogButtonBox" name="DiagButton">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>DiagButton</sender>
+   <signal>accepted()</signal>
+   <receiver>SetupAttribut</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>147</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>49</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DiagButton</sender>
+   <signal>rejected()</signal>
+   <receiver>SetupAttribut</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>147</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>49</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

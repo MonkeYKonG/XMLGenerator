@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XMLGenerator", "XMLGenerator.vcxproj", "{BBA4BB11-D61D-3BEA-8322-6FAA505681C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBA4BB11-D61D-3BEA-8322-6FAA505681C0}.Debug|x64.ActiveCfg = Debug|x64
+		{BBA4BB11-D61D-3BEA-8322-6FAA505681C0}.Debug|x64.Build.0 = Debug|x64
+		{BBA4BB11-D61D-3BEA-8322-6FAA505681C0}.Release|x64.ActiveCfg = Release|x64
+		{BBA4BB11-D61D-3BEA-8322-6FAA505681C0}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37620E7A-A202-4CD0-A147-FE583E908535}
+	EndGlobalSection
+EndGlobal
