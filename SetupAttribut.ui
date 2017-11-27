@@ -48,22 +48,6 @@
  <connections>
   <connection>
    <sender>DiagButton</sender>
-   <signal>accepted()</signal>
-   <receiver>SetupAttribut</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>147</x>
-     <y>78</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>127</x>
-     <y>49</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>DiagButton</sender>
    <signal>rejected()</signal>
    <receiver>SetupAttribut</receiver>
    <slot>reject()</slot>
@@ -78,5 +62,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>DiagButton</sender>
+   <signal>accepted()</signal>
+   <receiver>SetupAttribut</receiver>
+   <slot>verifyValues()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>11</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>verifyValues()</slot>
+ </slots>
 </ui>

@@ -69,8 +69,8 @@ public:
 
 
         retranslateUi(SetupAttribut);
-        QObject::connect(DiagButton, SIGNAL(accepted()), SetupAttribut, SLOT(accept()));
         QObject::connect(DiagButton, SIGNAL(rejected()), SetupAttribut, SLOT(reject()));
+        QObject::connect(DiagButton, SIGNAL(accepted()), SetupAttribut, SLOT(verifyValues()));
 
         QMetaObject::connectSlotsByName(SetupAttribut);
     } // setupUi

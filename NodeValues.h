@@ -16,6 +16,7 @@ public:
 
 public slots:
 	void on_Add_Attribut_clicked();
+	void UpdateNode();
 
 private:
 	Ui::NodeValues *ui;

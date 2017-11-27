@@ -31,6 +31,8 @@ public:
     QAction *actionNouveau;
     QAction *actionOuvrir;
     QAction *actionQuitter;
+    QAction *actionEnregistrer;
+    QAction *actionEnregistrer_sous;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     XMLTree *mainXMLTree;
@@ -50,6 +52,10 @@ public:
         actionOuvrir->setObjectName(QStringLiteral("actionOuvrir"));
         actionQuitter = new QAction(MainWindow);
         actionQuitter->setObjectName(QStringLiteral("actionQuitter"));
+        actionEnregistrer = new QAction(MainWindow);
+        actionEnregistrer->setObjectName(QStringLiteral("actionEnregistrer"));
+        actionEnregistrer_sous = new QAction(MainWindow);
+        actionEnregistrer_sous->setObjectName(QStringLiteral("actionEnregistrer_sous"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         horizontalLayout = new QHBoxLayout(centralWidget);
@@ -81,11 +87,15 @@ public:
         menuBar->addAction(menuFichier->menuAction());
         menuFichier->addAction(actionNouveau);
         menuFichier->addAction(actionOuvrir);
+        menuFichier->addAction(actionEnregistrer);
+        menuFichier->addAction(actionEnregistrer_sous);
         menuFichier->addSeparator();
         menuFichier->addAction(actionQuitter);
 
         retranslateUi(MainWindow);
         QObject::connect(actionQuitter, SIGNAL(triggered()), MainWindow, SLOT(close()));
+        QObject::connect(actionEnregistrer, SIGNAL(triggered()), MainWindow, SLOT(Save()));
+        QObject::connect(actionEnregistrer_sous, SIGNAL(triggered()), MainWindow, SLOT(SaveAs()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -105,6 +115,11 @@ public:
 #ifndef QT_NO_SHORTCUT
         actionQuitter->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", Q_NULLPTR));
 #endif // QT_NO_SHORTCUT
+        actionEnregistrer->setText(QApplication::translate("MainWindow", "Enregistrer", Q_NULLPTR));
+#ifndef QT_NO_SHORTCUT
+        actionEnregistrer->setShortcut(QApplication::translate("MainWindow", "Ctrl+S", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionEnregistrer_sous->setText(QApplication::translate("MainWindow", "Enregistrer sous...", Q_NULLPTR));
         QTreeWidgetItem *___qtreewidgetitem = mainXMLTree->headerItem();
         ___qtreewidgetitem->setText(2, QApplication::translate("MainWindow", "Valeur", Q_NULLPTR));
         ___qtreewidgetitem->setText(1, QApplication::translate("MainWindow", "Attributs", Q_NULLPTR));

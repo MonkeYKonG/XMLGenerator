@@ -18,10 +18,14 @@ public:
 
 public slots:
     void on_actionOuvrir_triggered();
+	void on_actionNouveau_triggered();
 	void on_mainXMLTree_itemDoubleClicked(QTreeWidgetItem * item, int index);
+	void Save();
+	void SaveAs();
 
 private:
     Ui::MainWindow *ui;
+	QString m_fileName;
 };
 
 #endif // MAINWINDOW_H

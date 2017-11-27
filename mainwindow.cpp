@@ -1,8 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "NodeValues.h"
+#include "NewNode.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <fstream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,16 +21,40 @@ MainWindow::~MainWindow()
 void MainWindow::on_mainXMLTree_itemDoubleClicked(QTreeWidgetItem * item, int index)
 {
 	NodeValuesDialog values(this);
+	my::XMLNode::XMLNodePtr node;
 
-	values.SetRoot(ui->mainXMLTree->GetEquivalentNode(item));
-	values.exec();
+	node = ui->mainXMLTree->GetEquivalentNode(item);
+	values.SetRoot(node);
+	if (values.exec())
+		ui->mainXMLTree->UpdateItem(item, node);
 }
 
 void MainWindow::on_actionOuvrir_triggered()
 {
-    QString fileName;
+    m_fileName = QFileDialog::getOpenFileName(this, "Ouvrir un fichier", QString(), "XMLFiles (*.xml)");
+    if (!m_fileName.isEmpty())
+        ui->mainXMLTree->LoadContent(m_fileName.toStdString());
+}
 
-    fileName = QFileDialog::getOpenFileName(this, "Ouvrir un fichier", QString(), "XMLFiles (*.xml)");
-    if (fileName != "")
-        ui->mainXMLTree->LoadContent(fileName.toStdString());
+void MainWindow::on_actionNouveau_triggered()
+{
+	NewNode newNodeGui(this);
+
+	if (newNodeGui.exec())
+		ui->mainXMLTree->LoadContent(newNodeGui.GetNode());
+}
+
+void MainWindow::Save()
+{
+	std::ofstream ofs(m_fileName.toStdString(), std::ios::out | std::ios::trunc);
+
+	if (!ofs)
+		SaveAs();
+	ofs << ui->mainXMLTree->GetRoot()->ToString();
+}
+
+void MainWindow::SaveAs()
+{
+	m_fileName = QFileDialog::getSaveFileName(this, "Enregistrement un fichier", QString(), "XMLFiles (*.xml)");
+	Save();
 }

@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_NodeValuesDialog_t {
-    QByteArrayData data[6];
-    char stringdata0[67];
+    QByteArrayData data[4];
+    char stringdata0[53];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,13 +34,11 @@ static const qt_meta_stringdata_NodeValuesDialog_t qt_meta_stringdata_NodeValues
 QT_MOC_LITERAL(0, 0, 16), // "NodeValuesDialog"
 QT_MOC_LITERAL(1, 17, 23), // "on_Add_Attribut_clicked"
 QT_MOC_LITERAL(2, 41, 0), // ""
-QT_MOC_LITERAL(3, 42, 12), // "OpenAttribut"
-QT_MOC_LITERAL(4, 55, 5), // "cellX"
-QT_MOC_LITERAL(5, 61, 5) // "cellY"
+QT_MOC_LITERAL(3, 42, 10) // "UpdateNode"
 
     },
     "NodeValuesDialog\0on_Add_Attribut_clicked\0"
-    "\0OpenAttribut\0cellX\0cellY"
+    "\0UpdateNode"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,11 +57,11 @@ static const uint qt_meta_data_NodeValuesDialog[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    0,   24,    2, 0x0a /* Public */,
-       3,    2,   25,    2, 0x0a /* Public */,
+       3,    0,   25,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,    4,    5,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -75,10 +73,11 @@ void NodeValuesDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_Add_Attribut_clicked(); break;
-        case 1: _t->OpenAttribut((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 1: _t->UpdateNode(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject NodeValuesDialog::staticMetaObject = {

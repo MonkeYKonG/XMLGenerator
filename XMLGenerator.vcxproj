@@ -140,6 +140,9 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_NewNode.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_NodeValues.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -147,6 +150,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_mainwindow.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_NewNode.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_NodeValues.cpp">
@@ -157,6 +163,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="NewNode.cpp" />
     <ClCompile Include="nodevalue.cpp" />
     <ClCompile Include="SetupAttribut.cpp" />
     <ClCompile Include="xmltree.cpp" />
@@ -194,7 +201,18 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\Enchiladas-s-shmup\includes" "-I.\..\Enchiladas-s-shmup\build\x64-Debug\Debug" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtWidgets" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtGui" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtANGLE" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtCore" "-I.\release" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\mkspecs\win32-msvc" "-I.\GeneratedFiles"</Command>
     </CustomBuild>
+    <ClInclude Include="GeneratedFiles\ui_NewNode.h" />
     <ClInclude Include="GeneratedFiles\ui_SetupAttribut.h" />
+    <CustomBuild Include="NewNode.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing NewNode.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\Enchiladas-s-shmup\includes" "-I.\..\Enchiladas-s-shmup\build\x64-Debug\Debug" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtWidgets" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtGui" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtANGLE" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtCore" "-I.\debug" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\mkspecs\win32-msvc" "-I.\GeneratedFiles"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing NewNode.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\Enchiladas-s-shmup\includes" "-I.\..\Enchiladas-s-shmup\build\x64-Debug\Debug" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtWidgets" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtGui" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtANGLE" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\include\QtCore" "-I.\release" "-I.\..\..\LIB\QT\5.9.3\MSVC2017_64\mkspecs\win32-msvc" "-I.\GeneratedFiles"</Command>
+    </CustomBuild>
     <ClInclude Include="xmltree.h" />
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +260,18 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="SetupAttribut.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="NewNode.ui">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewNode</class>
+ <widget class="QDialog" name="NewNode">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>297</width>
+    <height>239</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>NewNode</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QListWidget" name="BeaconsList">
+     <item>
+      <property name="text">
+       <string>Window</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>enemy</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="diagButton">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>diagButton</sender>
+   <signal>rejected()</signal>
+   <receiver>NewNode</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>148</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BeaconsList</sender>
+   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
+   <receiver>NewNode</receiver>
+   <slot>Validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>104</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>148</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>diagButton</sender>
+   <signal>accepted()</signal>
+   <receiver>NewNode</receiver>
+   <slot>Validate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>Validate()</slot>
+ </slots>
+</ui>

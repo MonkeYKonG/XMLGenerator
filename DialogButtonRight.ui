@@ -38,13 +38,6 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QGroupBox" name="ChildrenBox">
-       <property name="title">
-        <string>Enfants</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QGroupBox" name="AttributBox">
        <property name="title">
         <string>Attributs</string>
@@ -73,6 +66,12 @@
             <property name="text">
              <string>Ajouter</string>
             </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
          </layout>
@@ -90,13 +89,31 @@
          <property name="title">
           <string>Node</string>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
+           <layout class="QFormLayout" name="formLayout">
             <property name="sizeConstraint">
              <enum>QLayout::SetMinimumSize</enum>
             </property>
-            <item>
+            <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Valeur:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPlainTextEdit" name="Value">
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <property name="sizeConstraint">
                <enum>QLayout::SetMinimumSize</enum>
@@ -110,24 +127,6 @@
               </item>
               <item>
                <widget class="QLineEdit" name="Name"/>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QLabel" name="label_2">
-                <property name="text">
-                 <string>Valeur:</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QTextEdit" name="Value">
-                <property name="autoFillBackground">
-                 <bool>false</bool>
-                </property>
-               </widget>
               </item>
              </layout>
             </item>
@@ -182,23 +181,40 @@
  <resources/>
  <connections>
   <connection>
-   <sender>AttributsTable</sender>
-   <signal>cellDoubleClicked(int,int)</signal>
+   <sender>diagButton</sender>
+   <signal>rejected()</signal>
    <receiver>NodeValues</receiver>
-   <slot>OpenAttribut(int,int)</slot>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>230</x>
-     <y>132</y>
+     <x>260</x>
+     <y>485</y>
     </hint>
     <hint type="destinationlabel">
-     <x>286</x>
-     <y>-13</y>
+     <x>156</x>
+     <y>496</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>diagButton</sender>
+   <signal>accepted()</signal>
+   <receiver>NodeValues</receiver>
+   <slot>UpdateNode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>244</x>
+     <y>481</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>101</x>
+     <y>491</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
   <slot>OpenAttribut(int,int)</slot>
+  <slot>UpdateNode()</slot>
  </slots>
 </ui>

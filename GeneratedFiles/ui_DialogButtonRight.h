@@ -15,15 +15,16 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableWidget>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
@@ -33,7 +34,6 @@ class Ui_NodeValues
 public:
     QVBoxLayout *verticalLayout;
     QVBoxLayout *vboxLayout;
-    QGroupBox *ChildrenBox;
     QGroupBox *AttributBox;
     QHBoxLayout *horizontalLayout_4;
     QTableWidget *AttributsTable;
@@ -42,14 +42,14 @@ public:
     QPushButton *Add_Attribut;
     QVBoxLayout *verticalLayout_2;
     QGroupBox *NodeBox;
-    QHBoxLayout *horizontalLayout_5;
-    QVBoxLayout *verticalLayout_4;
+    QVBoxLayout *verticalLayout_6;
+    QFormLayout *formLayout;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_2;
+    QPlainTextEdit *Value;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QLineEdit *Name;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *label_2;
-    QTextEdit *Value;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout_3;
@@ -68,11 +68,6 @@ public:
         vboxLayout->setObjectName(QStringLiteral("vboxLayout"));
         vboxLayout->setSizeConstraint(QLayout::SetMinimumSize);
         vboxLayout->setContentsMargins(0, 0, 0, 0);
-        ChildrenBox = new QGroupBox(NodeValues);
-        ChildrenBox->setObjectName(QStringLiteral("ChildrenBox"));
-
-        vboxLayout->addWidget(ChildrenBox);
-
         AttributBox = new QGroupBox(NodeValues);
         AttributBox->setObjectName(QStringLiteral("AttributBox"));
         horizontalLayout_4 = new QHBoxLayout(AttributBox);
@@ -95,6 +90,7 @@ public:
 
         Add_Attribut = new QPushButton(AttributBox);
         Add_Attribut->setObjectName(QStringLiteral("Add_Attribut"));
+        Add_Attribut->setFlat(false);
 
         verticalLayout_5->addWidget(Add_Attribut);
 
@@ -109,11 +105,27 @@ public:
         verticalLayout_2->setSizeConstraint(QLayout::SetMinimumSize);
         NodeBox = new QGroupBox(NodeValues);
         NodeBox->setObjectName(QStringLiteral("NodeBox"));
-        horizontalLayout_5 = new QHBoxLayout(NodeBox);
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_4->setSizeConstraint(QLayout::SetMinimumSize);
+        verticalLayout_6 = new QVBoxLayout(NodeBox);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        formLayout = new QFormLayout();
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setSizeConstraint(QLayout::SetMinimumSize);
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        label_2 = new QLabel(NodeBox);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        horizontalLayout_3->addWidget(label_2);
+
+        Value = new QPlainTextEdit(NodeBox);
+        Value->setObjectName(QStringLiteral("Value"));
+        Value->setAutoFillBackground(false);
+
+        horizontalLayout_3->addWidget(Value);
+
+
+        formLayout->setLayout(1, QFormLayout::LabelRole, horizontalLayout_3);
+
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setSizeConstraint(QLayout::SetMinimumSize);
@@ -128,26 +140,10 @@ public:
         horizontalLayout_2->addWidget(Name);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_2);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        label_2 = new QLabel(NodeBox);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        horizontalLayout_3->addWidget(label_2);
-
-        Value = new QTextEdit(NodeBox);
-        Value->setObjectName(QStringLiteral("Value"));
-        Value->setAutoFillBackground(false);
-
-        horizontalLayout_3->addWidget(Value);
+        formLayout->setLayout(0, QFormLayout::LabelRole, horizontalLayout_2);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_3);
-
-
-        horizontalLayout_5->addLayout(verticalLayout_4);
+        verticalLayout_6->addLayout(formLayout);
 
 
         verticalLayout_2->addWidget(NodeBox);
@@ -183,7 +179,11 @@ public:
 
 
         retranslateUi(NodeValues);
-        QObject::connect(AttributsTable, SIGNAL(cellDoubleClicked(int,int)), NodeValues, SLOT(OpenAttribut(int,int)));
+        QObject::connect(diagButton, SIGNAL(rejected()), NodeValues, SLOT(close()));
+        QObject::connect(diagButton, SIGNAL(accepted()), NodeValues, SLOT(UpdateNode()));
+
+        Add_Attribut->setDefault(false);
+
 
         QMetaObject::connectSlotsByName(NodeValues);
     } // setupUi
@@ -191,15 +191,14 @@ public:
     void retranslateUi(QDialog *NodeValues)
     {
         NodeValues->setWindowTitle(QApplication::translate("NodeValues", "Dialog", Q_NULLPTR));
-        ChildrenBox->setTitle(QApplication::translate("NodeValues", "Enfants", Q_NULLPTR));
         AttributBox->setTitle(QApplication::translate("NodeValues", "Attributs", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = AttributsTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("NodeValues", "Valeur", Q_NULLPTR));
         Del_Attribut->setText(QApplication::translate("NodeValues", "Supprimer", Q_NULLPTR));
         Add_Attribut->setText(QApplication::translate("NodeValues", "Ajouter", Q_NULLPTR));
         NodeBox->setTitle(QApplication::translate("NodeValues", "Node", Q_NULLPTR));
-        label->setText(QApplication::translate("NodeValues", "Nom:", Q_NULLPTR));
         label_2->setText(QApplication::translate("NodeValues", "Valeur:", Q_NULLPTR));
+        label->setText(QApplication::translate("NodeValues", "Nom:", Q_NULLPTR));
     } // retranslateUi
 
 };

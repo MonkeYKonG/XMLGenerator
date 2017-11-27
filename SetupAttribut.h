@@ -14,6 +14,9 @@ public:
 	QString GetName() const;
 	QString GetValue() const;
 
+public slots:
+	void verifyValues();
+
 private:
 	Ui::SetupAttribut *ui;
 };

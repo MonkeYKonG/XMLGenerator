@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'SetupAttribut.h'
+** Meta object code from reading C++ file 'NewNode.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../SetupAttribut.h"
+#include "../../NewNode.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'SetupAttribut.h' doesn't include <QObject>."
+#error "The header file 'NewNode.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.9.3. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,27 +20,27 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_SetupAttribut_t {
+struct qt_meta_stringdata_NewNode_t {
     QByteArrayData data[3];
-    char stringdata0[28];
+    char stringdata0[18];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_SetupAttribut_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_NewNode_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_SetupAttribut_t qt_meta_stringdata_SetupAttribut = {
+static const qt_meta_stringdata_NewNode_t qt_meta_stringdata_NewNode = {
     {
-QT_MOC_LITERAL(0, 0, 13), // "SetupAttribut"
-QT_MOC_LITERAL(1, 14, 12), // "verifyValues"
-QT_MOC_LITERAL(2, 27, 0) // ""
+QT_MOC_LITERAL(0, 0, 7), // "NewNode"
+QT_MOC_LITERAL(1, 8, 8), // "Validate"
+QT_MOC_LITERAL(2, 17, 0) // ""
 
     },
-    "SetupAttribut\0verifyValues\0"
+    "NewNode\0Validate\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_SetupAttribut[] = {
+static const uint qt_meta_data_NewNode[] = {
 
  // content:
        7,       // revision
@@ -62,39 +62,39 @@ static const uint qt_meta_data_SetupAttribut[] = {
        0        // eod
 };
 
-void SetupAttribut::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void NewNode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        SetupAttribut *_t = static_cast<SetupAttribut *>(_o);
+        NewNode *_t = static_cast<NewNode *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->verifyValues(); break;
+        case 0: _t->Validate(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObject SetupAttribut::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_SetupAttribut.data,
-      qt_meta_data_SetupAttribut,  qt_static_metacall, nullptr, nullptr}
+const QMetaObject NewNode::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_NewNode.data,
+      qt_meta_data_NewNode,  qt_static_metacall, nullptr, nullptr}
 };
 
 
-const QMetaObject *SetupAttribut::metaObject() const
+const QMetaObject *NewNode::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *SetupAttribut::qt_metacast(const char *_clname)
+void *NewNode::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_SetupAttribut.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_NewNode.stringdata0))
         return static_cast<void*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
-int SetupAttribut::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int NewNode::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
