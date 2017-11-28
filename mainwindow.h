@@ -20,6 +20,8 @@ public slots:
     void on_actionOuvrir_triggered();
 	void on_actionNouveau_triggered();
 	void on_mainXMLTree_itemDoubleClicked(QTreeWidgetItem * item, int index);
+	void on_AddButton_clicked();
+	void on_DelButton_clicked();
 	void Save();
 	void SaveAs();
 

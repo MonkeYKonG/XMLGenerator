@@ -29,6 +29,16 @@ void MainWindow::on_mainXMLTree_itemDoubleClicked(QTreeWidgetItem * item, int in
 		ui->mainXMLTree->UpdateItem(item, node);
 }
 
+void MainWindow::on_AddButton_clicked()
+{
+	ui->mainXMLTree->AddNewChild();
+}
+
+void MainWindow::on_DelButton_clicked()
+{
+	ui->mainXMLTree->DelCurrentNode();
+}
+
 void MainWindow::on_actionOuvrir_triggered()
 {
     m_fileName = QFileDialog::getOpenFileName(this, "Ouvrir un fichier", QString(), "XMLFiles (*.xml)");

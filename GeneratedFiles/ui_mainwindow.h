@@ -13,11 +13,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -34,10 +35,13 @@ public:
     QAction *actionEnregistrer;
     QAction *actionEnregistrer_sous;
     QWidget *centralWidget;
-    QHBoxLayout *horizontalLayout;
+    QGridLayout *gridLayout;
     XMLTree *mainXMLTree;
+    QPushButton *AddButton;
+    QPushButton *DelButton;
     QMenuBar *menuBar;
     QMenu *menuFichier;
+    QMenu *menutest;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -58,17 +62,27 @@ public:
         actionEnregistrer_sous->setObjectName(QStringLiteral("actionEnregistrer_sous"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        horizontalLayout = new QHBoxLayout(centralWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        gridLayout = new QGridLayout(centralWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         mainXMLTree = new XMLTree(centralWidget);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
         __qtreewidgetitem->setText(0, QStringLiteral("Nom"));
         mainXMLTree->setHeaderItem(__qtreewidgetitem);
         mainXMLTree->setObjectName(QStringLiteral("mainXMLTree"));
 
-        horizontalLayout->addWidget(mainXMLTree);
+        gridLayout->addWidget(mainXMLTree, 0, 0, 1, 5);
+
+        AddButton = new QPushButton(centralWidget);
+        AddButton->setObjectName(QStringLiteral("AddButton"));
+
+        gridLayout->addWidget(AddButton, 1, 0, 1, 1);
+
+        DelButton = new QPushButton(centralWidget);
+        DelButton->setObjectName(QStringLiteral("DelButton"));
+
+        gridLayout->addWidget(DelButton, 1, 1, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -76,6 +90,8 @@ public:
         menuBar->setGeometry(QRect(0, 0, 400, 21));
         menuFichier = new QMenu(menuBar);
         menuFichier->setObjectName(QStringLiteral("menuFichier"));
+        menutest = new QMenu(menuBar);
+        menutest->setObjectName(QStringLiteral("menutest"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -85,6 +101,7 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuFichier->menuAction());
+        menuBar->addAction(menutest->menuAction());
         menuFichier->addAction(actionNouveau);
         menuFichier->addAction(actionOuvrir);
         menuFichier->addAction(actionEnregistrer);
@@ -123,7 +140,10 @@ public:
         QTreeWidgetItem *___qtreewidgetitem = mainXMLTree->headerItem();
         ___qtreewidgetitem->setText(2, QApplication::translate("MainWindow", "Valeur", Q_NULLPTR));
         ___qtreewidgetitem->setText(1, QApplication::translate("MainWindow", "Attributs", Q_NULLPTR));
+        AddButton->setText(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));
+        DelButton->setText(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
         menuFichier->setTitle(QApplication::translate("MainWindow", "Fichier", Q_NULLPTR));
+        menutest->setTitle(QApplication::translate("MainWindow", "test", Q_NULLPTR));
     } // retranslateUi
 
 };

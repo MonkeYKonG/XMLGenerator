@@ -91,15 +91,24 @@ my::XMLNode::XMLNodePtr XMLTree::GetRoot() const
 
 void XMLTree::AddNewChild()
 {
-	NewNode newNodeGui;
+	NewNode newNodeGui(this);
 	QTreeWidgetItem * curItem;
 
 	if ((curItem = currentItem()) == 0)
-		curItem = invisibleRootItem();
-	newNodeGui.exec();
+		return;
+	if (newNodeGui.exec())
+		curItem->addChild(AddContent(newNodeGui.GetNode(), curItem));
 }
 
 void XMLTree::DelCurrentNode()
 {
+	QTreeWidgetItem * curItem;
+	int topLevelIndex;
 
+	if ((curItem = currentItem()) == 0)
+		return;
+	if ((topLevelIndex = indexOfTopLevelItem(curItem)) == -1)
+		curItem->parent()->removeChild(curItem);
+	else
+		takeTopLevelItem(topLevelIndex);
 }
